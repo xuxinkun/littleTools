@@ -50,3 +50,7 @@ chmod +x install.sh
 | kt-get-pod-by-rs     | {rs name} or {namespace} {rs name}         | Get all the pods of the rs.         |
 | kt-get-pod-by-deploy | {deploy name} or {namespace} {deploy name} | Get all the pods of the deploy.     |
 | kt-get-pod-by-svc    | {svc name} or {namespace} {svc name}       | Get all the pods of the svc.        |
+
+## examples
+
+See more [examples](examples.md)
