@@ -51,6 +51,29 @@ chmod +x install.sh
 | kt-get-pod-by-deploy | {deploy name} or {namespace} {deploy name} | Get all the pods of the deploy.     |
 | kt-get-pod-by-svc    | {svc name} or {namespace} {svc name}       | Get all the pods of the svc.        |
 
-## examples
+## azk8spull
+
+`azk8spull` makes use of azk8s.cn mirror to pull image from container registries like `docker.io`, `gcr.io`, `quay.io` in China. `azk8spull` will pull the image from azk8s.cn and then tag to the origin image name. Thanks to Azure China.
+
+For more information, please visit [https://github.com/Azure/container-service-for-azure-china/tree/master/aks#22-container-registry-proxy](https://github.com/Azure/container-service-for-azure-china/tree/master/aks#22-container-registry-proxy).
+
+```
+[root@node-64-216 ~]# azk8spull quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1
+## azk8spull try to pull image from mirror quay.azk8s.cn/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1.
+0.24.1: Pulling from kubernetes-ingress-controller/nginx-ingress-controller
+Digest: sha256:76861d167e4e3db18f2672fd3435396aaa898ddf4d1128375d7c93b91c59f87f
+Status: Image is up to date for quay.azk8s.cn/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1
+## azk8spull try to tag quay.azk8s.cn/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1 to quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1.
+## azk8spull finish pulling.
+[root@node-64-216 ~]# azk8spull k8s.gcr.io/pause-amd64:3.1
+## azk8spull try to pull image from mirror gcr.azk8s.cn/google_containers/pause-amd64:3.1.
+3.1: Pulling from google_containers/pause-amd64
+Digest: sha256:59eec8837a4d942cc19a52b8c09ea75121acc38114a2c68b98983ce9356b8610
+Status: Image is up to date for gcr.azk8s.cn/google_containers/pause-amd64:3.1
+## azk8spull try to tag gcr.azk8s.cn/google_containers/pause-amd64:3.1 to k8s.gcr.io/pause-amd64:3.1.
+## azk8spull finish pulling. 
+```
+
+## kube-tools and docker-tools examples
 
 See more [examples](examples.md)
