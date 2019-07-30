@@ -51,14 +51,14 @@ function dt-lookup-by-pid()
 function dt-lookup-by-volume()
 {
 	lookup_volume=$1
-	for container_id in `docker ps -q`
+	for container_id in `docker ps -a -q`
 	do
 		volumes=`docker inspect -f '{{range .Mounts}}{{printf "%s\n" .Source}}{{end}}' $container_id`
 		for volume in $volumes
 		do
 			if [[ $lookup_volume =~ $volume ]]
 			then
-				docker ps -f id=$container_id
+				docker ps -a -f id=$container_id
 			fi
 		done
 	done
