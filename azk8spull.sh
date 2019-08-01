@@ -33,6 +33,10 @@ function azk8spull()
 				repoName=${array[0]}
 				imageName=${array[1]}
 			fi
+		elif [ ${#array[*]} -eq 1 ]; then
+				domainName="dockerhub.azk8s.cn"
+				repoName="library"
+				imageName=${array[0]}
 		else
 			echo '## azk8spull can not support pulling $image right now.'
 		fi
