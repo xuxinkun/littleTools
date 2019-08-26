@@ -50,6 +50,7 @@ chmod +x install.sh
 | kt-get-pod-by-rs     | {rs name} or {namespace} {rs name}         | Get all the pods of the rs.         |
 | kt-get-pod-by-deploy | {deploy name} or {namespace} {deploy name} | Get all the pods of the deploy.     |
 | kt-get-pod-by-svc    | {svc name} or {namespace} {svc name}       | Get all the pods of the svc.        |
+| kt-get-pod-by-ip     | {ip}                                       | Get pod with the ip.                |
 
 ## azk8spull
 
@@ -65,6 +66,7 @@ Digest: sha256:76861d167e4e3db18f2672fd3435396aaa898ddf4d1128375d7c93b91c59f87f
 Status: Image is up to date for quay.azk8s.cn/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1
 ## azk8spull try to tag quay.azk8s.cn/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1 to quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1.
 ## azk8spull finish pulling.
+
 [root@node-64-216 ~]# azk8spull k8s.gcr.io/pause-amd64:3.1
 ## azk8spull try to pull image from mirror gcr.azk8s.cn/google_containers/pause-amd64:3.1.
 3.1: Pulling from google_containers/pause-amd64

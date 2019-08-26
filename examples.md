@@ -97,5 +97,7 @@ NAME            STATUS    ROLES     AGE       VERSION     EXTERNAL-IP   OS-IMAGE
 NAME                 READY     STATUS    RESTARTS   AGE       IP              NODE
 nevermore-a76210c9   1/1       Running   2          128d      10.182.39.226   111.22.201.39
 
-
+[root@localhost ~]# kt-get-pod-by-ip 10.182.39.226
+NAME                 READY     STATUS    RESTARTS   AGE       IP              NODE
+nevermore-a76210c9   1/1       Running   2          128d      10.182.39.226   111.22.201.39
 ```

@@ -102,3 +102,10 @@ function kt-get-pod-by-deploy()
 		kubectl get pod -l $labels -o wide
 	fi
 }
+function kt-get-pod-by-ip()
+{
+	if [[ $# == 1 ]]
+	then
+	    kubectl get pod --all-namespaces --field-selector="status.podIP=$1" -o wide
+	fi
+}
