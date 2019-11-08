@@ -87,7 +87,7 @@ Node:           111.22.201.39/111.22.201.39
 Start Time:     Mon, 12 Nov 2018 21:49:16 +0800
 Labels:         app=nevermore
 
-[root@localhost ~]# kt-get-pod-node  nevermore nevermore-a76210c9 
+[root@localhost ~]# kt-get-node-by-pod  nevermore nevermore-a76210c9 
 NAME                 READY     STATUS    RESTARTS   AGE       IP              NODE
 nevermore-a76210c9   1/1       Running   2          128d      10.182.39.226   111.22.201.39
 NAME            STATUS    ROLES     AGE       VERSION     EXTERNAL-IP   OS-IMAGE                KERNEL-VERSION               CONTAINER-RUNTIME
@@ -98,6 +98,10 @@ NAME                 READY     STATUS    RESTARTS   AGE       IP              NO
 nevermore-a76210c9   1/1       Running   2          128d      10.182.39.226   111.22.201.39
 
 [root@localhost ~]# kt-get-pod-by-ip 10.182.39.226
-NAME                 READY     STATUS    RESTARTS   AGE       IP              NODE
-nevermore-a76210c9   1/1       Running   2          128d      10.182.39.226   111.22.201.39
+NAMESPACE   NAME                 READY     STATUS    RESTARTS   AGE       IP              NODE
+nevermore   nevermore-a76210c9   1/1       Running   2          128d      10.182.39.226   111.22.201.39
+
+[root@localhost ~]# kt-get-pod-by-node 111.22.201.39
+NAMESPACE   NAME                 READY     STATUS    RESTARTS   AGE       IP              NODE
+nevermore   nevermore-a76210c9   1/1       Running   2          128d      10.182.39.226   111.22.201.39
 ```

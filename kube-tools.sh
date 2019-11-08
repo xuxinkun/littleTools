@@ -29,6 +29,18 @@ function kt-get-node-notready()
 {
 	kubectl get node -o wide|grep NotReady
 }
+function kt-get-node-by-pod()
+{
+	if [[ $# == 2 ]]
+	then
+		kubectl get pod -n $1 $2 -o wide
+		node_name=`kubectl get pod -n $1 $2 -o go-template --template="{{.spec.nodeName}}"`
+	else
+		kubectl get pod $1
+		node_name=`kubectl get pod $1 -o go-template --template="{{.spec.nodeName}}"`
+	fi
+	kubectl describe node $node_name
+}
 function kt-get-node-all()
 {
 	kubectl get node -o wide
@@ -42,18 +54,7 @@ function kt-get-pod()
 		kubectl describe pod $1
 	fi
 }
-function kt-get-pod-node()
-{
-	if [[ $# == 2 ]]
-	then
-		kubectl get pod -n $1 $2 -o wide
-		node_name=`kubectl get pod -n $1 $2 -o go-template --template="{{.spec.nodeName}}"`
-	else
-		kubectl get pod $1
-		node_name=`kubectl get pod $1 -o go-template --template="{{.spec.nodeName}}"`
-	fi
-	kubectl get node $node_name -o wide
-}
+
 function kt-get-pod-all()
 {
 	kubectl get pod --all-namespaces -o wide
@@ -107,5 +108,12 @@ function kt-get-pod-by-ip()
 	if [[ $# == 1 ]]
 	then
 	    kubectl get pod --all-namespaces --field-selector="status.podIP=$1" -o wide
+	fi
+}
+function kt-get-pod-by-node()
+{
+	if [[ $# == 1 ]]
+	then
+	    kubectl get pod --all-namespaces --field-selector="spec.nodeName=$1" -o wide
 	fi
 }

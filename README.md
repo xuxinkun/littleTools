@@ -15,6 +15,7 @@ git clone https://github.com/xuxinkun/littleTools
 cd littleTools
 chmod +x install.sh
 ./install.sh
+source /etc/profile
 ```
 
 ## docker tools(docker-tools)
@@ -44,13 +45,14 @@ chmod +x install.sh
 | kt-get-node-notready | None                                       | List all the not ready nodes.       |
 | kt-get-node-all      | None                                       | List all the nodes                  |
 | kt-get-pod           | {pod name} or {namespace} {pod name}       | Describe pod.                       |
-| kt-get-pod-node      | {pod name} or {namespace} {pod name}       | Get the pod and the node with pod.  |
+| kt-get-node-by-pod   | {pod name} or {namespace} {pod name}       | Get the pod and the node with pod.  |
 | kt-get-pod-all       | None                                       | Get all the pods of all namespaces. |
 | kt-get-pod-by-ns     | {namespace}                                | Get all the pods in the namespace.  |
 | kt-get-pod-by-rs     | {rs name} or {namespace} {rs name}         | Get all the pods of the rs.         |
 | kt-get-pod-by-deploy | {deploy name} or {namespace} {deploy name} | Get all the pods of the deploy.     |
 | kt-get-pod-by-svc    | {svc name} or {namespace} {svc name}       | Get all the pods of the svc.        |
 | kt-get-pod-by-ip     | {ip}                                       | Get pod with the ip.                |
+| kt-get-pod-by-node   | {nodeName}                                 | get pods on the node.               |
 
 ## azk8spull
 
