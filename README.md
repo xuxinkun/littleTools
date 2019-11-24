@@ -18,6 +18,14 @@ chmod +x install.sh
 source /etc/profile
 ```
 
+`azk8spull` function can not work with zsh. So, `bin/azk8spull` is provided for zsh. Install it as follow if using zsh.
+
+```
+cp bin/azk8spull /usr/bin
+chmod +x /usr/bin/azk8spull
+sed -i '/source \/etc\/littletools\/azk8spull.sh/d' /etc/littletools/littletools.sh
+```
+
 ## docker tools(docker-tools)
 
 | command             | params        | description                                                  |
