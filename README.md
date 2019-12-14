@@ -2,11 +2,17 @@
 
 littleTools contains a set of short commands used to make the input of some commands simple.
 
+littleTools is written by shell function. So `tab` key can help the users to complete the command automaticly.
+
+#### docker-tools and kube-tools
+
 littleTools has docker-tools and kube-tools to simplify the input of command `docker` and `kubectl`.
 
 For example, if you want to exec into a container, you may enter the command `docker exec -it xxx bash`. With littleTools, just use `dt-exec xxx` can achieve it.
 
-littleTools is written by shell function. So `tab` key can help the users to complete the command automaticly.
+#### azk8spull
+
+azk8spull is using to pull image from mirror registry azk8s.cn.
 
 ## install 
 
@@ -18,15 +24,15 @@ chmod +x install.sh
 source /etc/profile
 ```
 
-`azk8spull` function can not work with zsh. So, `bin/azk8spull` is provided for zsh. Install it as follow if using zsh.
+`azk8spull` function can not work with zsh. So, `bin/azk8spull` is provided for zsh. Install it as follow if using zsh or just using `azk8spull` without other tools.
 
 ```
-cp bin/azk8spull /usr/bin
-chmod +x /usr/bin/azk8spull
-sed -i '/source \/etc\/littletools\/azk8spull.sh/d' /etc/littletools/littletools.sh
+curl -Lo /usr/local/bin/azk8spull https://github.com/xuxinkun/littleTools/releases/download/v1.0.0/azk8spull && chmod +x /usr/local/bin/azk8spull
 ```
 
-## docker tools(docker-tools)
+## usage
+
+#### docker tools(docker-tools)
 
 | command             | params        | description                                                  |
 | ------------------- | ------------- | ------------------------------------------------------------ |
@@ -42,7 +48,7 @@ sed -i '/source \/etc\/littletools\/azk8spull.sh/d' /etc/littletools/littletools
 | dt-lookup-by-volume | {volume path} | Look up the container with volumes which contains the {volume path} on host. |
 
 
-## kubernetes tools(kube-tools)
+#### kubernetes tools(kube-tools)
 
 | command              | params                                     | description                         |
 | -------------------- | ------------------------------------------ | ----------------------------------- |
@@ -62,7 +68,7 @@ sed -i '/source \/etc\/littletools\/azk8spull.sh/d' /etc/littletools/littletools
 | kt-get-pod-by-ip     | {ip}                                       | Get pod with the ip.                |
 | kt-get-pod-by-node   | {nodeName}                                 | get pods on the node.               |
 
-## azk8spull
+#### azk8spull
 
 `azk8spull` makes use of azk8s.cn mirror to pull image from container registries like `docker.io`, `gcr.io`, `quay.io` in China. `azk8spull` will pull the image from azk8s.cn and then tag to the origin image name. Thanks to Azure China.
 
@@ -86,6 +92,8 @@ Status: Image is up to date for gcr.azk8s.cn/google_containers/pause-amd64:3.1
 ## azk8spull finish pulling. 
 ```
 
-## kube-tools and docker-tools examples
+## examples
+
+#### kube-tools and docker-tools
 
 See more [examples](examples.md)
