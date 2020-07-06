@@ -14,6 +14,8 @@ For example, if you want to exec into a container, you may enter the command `do
 
 azk8spull is using to pull image from mirror registry azk8s.cn.
 
+**Since 2020, the proxy server is limited to Azure China IP, and no longer provides external services.** See more info at [http://mirror.azk8s.cn/help/docker-registry-proxy-cache.html](http://mirror.azk8s.cn/help/docker-registry-proxy-cache.html).
+
 ## install 
 
 ```
